@@ -2,7 +2,9 @@
   <img src="logo.png" alt="dsh-plugin-tts" width="140" />
 </p>
 
-<h1 align="center">dsh-plugin-tts</h1>
+<h1 align="center">dsh-plugin-tts-moe4all</h1>
+
+<p align="center">MoE4All-maintained edition of <code>@dsh-external/dsh-plugin-tts</code>. See <a href="UPSTREAM.md">UPSTREAM.md</a> for the exact source checkpoint, attribution, and purpose of this independent repository.</p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>

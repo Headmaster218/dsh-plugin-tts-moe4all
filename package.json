@@ -1,7 +1,7 @@
 {
-  "name": "@dsh-external/dsh-plugin-tts",
-  "description": "Edge TTS 语音大集成插件：消息朗读按钮、自动朗读开关、语音设置面板（Edge TTS）",
-  "version": "0.3.1",
+  "name": "dsh-plugin-tts-moe4all",
+  "description": "MoE4All 版 Edge TTS 插件：消息朗读按钮、自动朗读开关和语音设置面板",
+  "version": "0.3.1-moe4all.1",
   "type": "module",
   "engines": {
     "node": ">=22"
@@ -44,5 +44,18 @@
     "test:client": "node tests/client-load.mjs",
     "test:all": "node tests/smoke.mjs && node tests/rvc-server-live.mjs && node tests/package-runtime-patch.mjs && node tests/i18n-keys.mjs && node tests/client-load.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Headmaster218/dsh-plugin-tts-moe4all.git"
+  },
+  "homepage": "https://github.com/Headmaster218/dsh-plugin-tts-moe4all#readme",
+  "bugs": {
+    "url": "https://github.com/Headmaster218/dsh-plugin-tts-moe4all/issues"
+  },
+  "moe4all": {
+    "upstream": "@dsh-external/dsh-plugin-tts@0.3.1",
+    "repository": "https://github.com/1624318455/dsh-plugin-tts",
+    "commit": "3f362452cbf0c52ef5781bb312df0512df9b578f"
+  }
 }
