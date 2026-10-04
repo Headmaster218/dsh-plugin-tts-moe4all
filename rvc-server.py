@@ -14,10 +14,10 @@
 #       --rvc-dir "E:\AI\RVC20240604Nvidia\RVC20240604Nvidia" \
 #       --model "E:\...\assets\weights\azusa-test.pth" \
 #       --index "E:\...\assets\indices\azusa-test_..._v2.index" \
-#       --port 4892
+#       --port 4893
 # Usage (macOS/Linux, portable or manually prepared env):
-#   ~/rvc-work/venv/bin/python ~/rvc-work/rvc-server.py --port 4892
-#   # or: <rvc-dir>/runtime/bin/python <rvc-dir>/rvc-server.py --port 4892
+#   ~/rvc-work/venv/bin/python ~/rvc-work/rvc-server.py --port 4893
+#   # or: <rvc-dir>/runtime/bin/python <rvc-dir>/rvc-server.py --port 4893
 import argparse
 import binascii
 import io
@@ -40,7 +40,7 @@ def resolve_rvc_dir(value):
 
 
 ap = argparse.ArgumentParser(description="dsh-plugin-tts RVC inference server")
-ap.add_argument("--port", type=int, default=4892)
+ap.add_argument("--port", type=int, default=4893)
 ap.add_argument("--host", default="127.0.0.1")
 ap.add_argument("--device", default="auto", help="cuda:0 / cpu / auto")
 ap.add_argument("--fp32", action="store_true", help="force fp32 (16xx GPUs)")
@@ -373,7 +373,10 @@ def scan_files(kind):
         roots.append(logs)
     # the plugin's voice-pack install dir, so downloaded packs show up in the
     # browse picker (installed files are named <packId>.pth / <packId>.index)
-    pack_root = os.path.expanduser(os.path.join("~", ".dsh", "tts-rvc", "packs"))
+    pack_root = os.path.join(
+        os.environ.get("DSH_HOME") or os.path.expanduser("~/.dsh"),
+        "tts-rvc", "packs",
+    )
     if os.path.isdir(pack_root):
         roots.append(pack_root)
     out = []

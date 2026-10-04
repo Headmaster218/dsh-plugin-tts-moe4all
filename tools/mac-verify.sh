@@ -18,7 +18,7 @@ set -u
 
 MODEL="${1:-}"
 INDEX="${2:-}"
-HOST="${3:-127.0.0.1:4892}"
+HOST="${3:-127.0.0.1:4893}"
 BASE="http://$HOST"
 PY="${PY:-python3}"
 FAIL=0

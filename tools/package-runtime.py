@@ -188,16 +188,16 @@ def main():
         with open(launcher, "w", encoding="gbk", errors="replace") as f:
             f.write("@echo off\r\n"
                      "cd /d \"%~dp0\"\r\n"
-                     "echo Starting dsh-plugin-tts RVC server on http://127.0.0.1:4892 ...\r\n"
-                     "start \"dsh-tts-rvc\" \"%~dp0runtime\\python.exe\" \"%~dp0rvc-server.py\" --port 4892\r\n")
+                     "echo Starting dsh-plugin-tts RVC server on http://127.0.0.1:4893 ...\r\n"
+                     "start \"moe4all-tts-rvc\" \"%~dp0runtime\\python.exe\" \"%~dp0rvc-server.py\" --port 4893\r\n")
         print("[package] wrote %s" % launcher, flush=True)
     else:
         launcher = os.path.join(out, "start-rvc-server.sh")
         with open(launcher, "w", encoding="utf-8") as f:
             f.write("#!/bin/sh\n"
                      "cd \"$(dirname \"$0\")\"\n"
-                     "echo 'Starting dsh-plugin-tts RVC server on http://127.0.0.1:4892 ...'\n"
-                     "exec \"$PWD/runtime/bin/python\" \"$PWD/rvc-server.py\" --port 4892\n")
+                     "echo 'Starting dsh-plugin-tts RVC server on http://127.0.0.1:4893 ...'\n"
+                     "exec \"$PWD/runtime/bin/python\" \"$PWD/rvc-server.py\" --port 4893\n")
         os.chmod(launcher, 0o755)
         print("[package] wrote %s (chmod +x)" % launcher, flush=True)
 
