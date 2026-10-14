@@ -48,7 +48,11 @@ const slots = {
   inject(slot, fn) { injectedComponents.push({ slot, fn }); },
   register(spec, component) { return component; }, // real host returns the registered component
 };
+let hostLanguage = 'zh';
+const localeListeners = [];
 const ctx = {
+  locale: { getLocale: () => ({ active: hostLanguage }) },
+  on(name, callback) { if (name === 'locale/change') localeListeners.push(callback); },
   get(name) { if (name === 'slots') return slots; return undefined; },
   effect() {},
 };
@@ -114,6 +118,15 @@ try {
     check('persisted language resolves to en after reload', I18N2.current() === 'en');
     // reset to auto for isolation
     hooks.setLang('auto');
+    hostLanguage = 'en';
+    localeListeners.forEach(callback => callback());
+    check('auto language follows host changes, not the browser language', hooks.current() === 'en');
+    hooks.setLang('zh');
+    localeListeners.forEach(callback => callback());
+    check('explicit plugin language remains independent of host changes', hooks.current() === 'zh');
+    hostLanguage = 'zh';
+    hooks.setLang('auto');
+    localeListeners.forEach(callback => callback());
   } catch (e) {
     check('i18n preference persistence round-trip', false, String(e && e.message || e));
   }
