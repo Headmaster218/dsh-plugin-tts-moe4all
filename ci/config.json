@@ -1,0 +1,29 @@
+{
+  "package": "dsh-plugin-tts-moe4all",
+  "clientRequires": [
+    "react"
+  ],
+  "tests": [
+    {
+      "args": [
+        "tests/smoke.mjs"
+      ],
+      "preload": "ci/mock-edge.mjs"
+    },
+    {
+      "args": [
+        "tests/i18n-keys.mjs"
+      ]
+    },
+    {
+      "args": [
+        "tests/client-load.mjs"
+      ]
+    },
+    {
+      "args": [
+        "tests/package-runtime-patch.mjs"
+      ]
+    }
+  ]
+}
