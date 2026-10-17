@@ -1,7 +1,7 @@
 {
   "name": "dsh-plugin-tts-moe4all",
   "description": "MoE4All 版 Edge TTS 插件：消息朗读按钮、自动朗读开关和语音设置面板",
-  "version": "0.3.1-moe4all.2",
+  "version": "0.3.1-moe4all.3",
   "type": "module",
   "engines": {
     "node": ">=22"
